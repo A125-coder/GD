@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css'  %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css'  %}">
+</head>
+
+<body>
+    {% include 'partials/_header.html' %}
+    {% if header_h1 %}
+    <!-- якщо така змінна існує (не головна сторінка) - виводим внутрішній хедер  -->
+    {% include 'partials/_header_internal.html' %}
+    {% else %}
+    {% include 'partials/_header_img.html' %}
+    {% endif %}
+    {% block content %} {% endblock %}
+    {% include "partials/_carusel.html" %}
+    {% include "partials/_footer.html" %}
+    <script src="{% static 'js/main.js'  %}"></script>
+    <script src="{% static 'js/galery_apartment.js'  %}"></script>
+</body>
+
+</html>
